@@ -20,6 +20,15 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  var obj={}
+  for (let i = 0; i < string.length; i++) {
+    if(!obj.hasOwnProperty([string[i]])){
+      obj[string[i]] = 1
+    }else{
+    obj[string[i]] ++
+    }
+  }
+  return obj;
 }
 
 
@@ -50,23 +59,8 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
-  var array = str.split(" ",str.length)
-  var nuevaCadena= ""
-  for (var i = 0; i < array.length; i++) {
-    
-    
-    for (let j = array[i].length - 1 ; j >= 0; j--) {
-       nuevaCadena=nuevaCadena + array[i][j]
-       if(j === 0 && array.length-1 !== array[i]){
-        nuevaCadena=nuevaCadena +  " "  
-      }
-      }
-      
-      
-      
-    }
-    
-    return nuevaCadena
+  return str.split(" ").map(e=>e.split("")).map(e=>e.reverse()).map(e=>e.join("")).join(" ")
+
 
 } 
 
